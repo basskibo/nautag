@@ -176,14 +176,15 @@ def dress_grid_cell(labels_box):
     emblems = picture_row.get_last_child() if picture_row else None
     # Anything else means this cell is done, or a future Nautilus laid it out differently
     if isinstance(name, Gtk.Label) and isinstance(emblems, Gtk.Box):
-        row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=2, halign=Gtk.Align.CENTER)
+        row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4, halign=Gtk.Align.CENTER)
         picture_row.remove(emblems)
         labels_box.remove(name)
         picture_row.set_margin_end(18)  # the emblem column set the cell's width, keep it or names wrap early
         emblems.set_orientation(Gtk.Orientation.HORIZONTAL)
         emblems.set_size_request(-1, -1)
         emblems.set_margin_start(0)
-        emblems.set_spacing(0)
+        emblems.set_spacing(2)
+        emblems.add_css_class("file-tag-emblems")
         emblems.set_valign(Gtk.Align.START)
         name.set_natural_wrap_mode(Gtk.NaturalWrapMode.NONE)  # else the centred row is narrower than the cell
         row.append(emblems)
@@ -212,7 +213,9 @@ def setup_display():
     Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(ICONS)
     # Themes dim sidebar icons, which would mute the tag colours
     provider = Gtk.CssProvider()
-    provider.load_from_string(".file-tag-row .sidebar-icon { opacity: 1; }")
+    # Emblems are 16px with a 10px dot; trim the padding so two tags do not squeeze the name into char wraps
+    provider.load_from_string(".file-tag-row .sidebar-icon { opacity: 1; }"
+                              ".file-tag-emblems > image { margin: 0 -3px; }")
     Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER + 1)
 
 

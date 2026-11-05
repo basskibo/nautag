@@ -4,6 +4,21 @@
 
 Finder-style colour tags for Nautilus (GNOME Files) on Ubuntu 24.04: right-click a file → **Tags**, get a coloured dot on it and a list of tagged files in the sidebar.
 
+![Tagged files in grid view, tag list in the sidebar](screenshots/grid.png)
+
+| List view | A tag's folder |
+| --- | --- |
+| ![List view with tag dots after the names](screenshots/list.png) | ![Everything tagged Red in one place](screenshots/tag-folder.png) |
+
+## What you get
+
+- **Seven Finder colours** in the right-click menu (Tags → Red, Orange, …), on one or many files and folders.
+- **Coloured dots** before the name in grid view and after it in list view.
+- **Tags in the sidebar**: click one to see everything with that tag, wherever it lives.
+- **Tags stay on the file** (`user.xdg.tags` extended attribute, which Dolphin reads too), so they survive renames and moves.
+
+## Install
+
     unzip nautag-1.0.zip && cd nautag   # or clone the repo
     ./install.sh    # asks for sudo once if python3-nautilus is missing
     nautilus -q     # restart Nautilus
