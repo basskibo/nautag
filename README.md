@@ -1,9 +1,10 @@
-# Nautilus colour tags
+# Nautag
 
 <img src="icon.png" width="96" alt="">
 
-Finder-style tags for Nautilus on Ubuntu 24.04: right-click a file → **Tags**, get a coloured dot on it and a list of tagged files in the sidebar.
+Finder-style colour tags for Nautilus (GNOME Files) on Ubuntu 24.04: right-click a file → **Tags**, get a coloured dot on it and a list of tagged files in the sidebar.
 
+    unzip nautag-1.0.zip && cd nautag   # or clone the repo
     ./install.sh    # asks for sudo once if python3-nautilus is missing
     nautilus -q     # restart Nautilus
 

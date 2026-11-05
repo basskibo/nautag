@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installs the Nautilus colour tags extension. Safe to re-run.
+# Installs Nautag, Finder-style colour tags for Nautilus. Safe to re-run.
 set -euo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
